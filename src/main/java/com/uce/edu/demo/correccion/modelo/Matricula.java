@@ -1,13 +1,11 @@
-package com.uce.edu.demo.matriculacion.modelo;
+package com.uce.edu.demo.correccion.modelo;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Component;
-//Se le dio un Scope de singleton para un mejor acceso a los atos en memoria
-//ya que no se accede a la base de datos
 @Component
-public class Matriculacion {
+public class Matricula {
 	
 	private LocalDateTime fechaMatriculacion;
 	private BigDecimal precioMatriculacion;
@@ -16,7 +14,7 @@ public class Matriculacion {
 	
 	@Override
 	public String toString() {
-		return "MatriculacionTo [Fecha de matriculacion=" + fechaMatriculacion + ", Precio de matricula="
+		return "Matriculacion [Fecha de matriculacion=" + fechaMatriculacion + ", Precio de matricula="
 				+ precioMatriculacion + ", Propietario=" + propietario + ", Vehiculo=" + vehiculo + "]";
 	}
 	

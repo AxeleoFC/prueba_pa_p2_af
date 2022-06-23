@@ -1,6 +1,6 @@
-package com.uce.edu.demo.matriculacion.repository;
+package com.uce.edu.demo.correccion.repository;
 
-import com.uce.edu.demo.matriculacion.modelo.Vehiculo;
+import com.uce.edu.demo.correccion.modelo.Vehiculo;
 
 public interface IVehiculoRepository {
 	public void ingresar(Vehiculo v);

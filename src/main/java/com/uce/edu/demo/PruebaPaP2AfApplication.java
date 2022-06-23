@@ -9,23 +9,22 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.uce.edu.demo.matriculacion.modelo.Propietario;
-import com.uce.edu.demo.matriculacion.modelo.Vehiculo;
-import com.uce.edu.demo.matriculacion.service.IMatriculaVehiculosService;
-import com.uce.edu.demo.matriculacion.service.IPropietarioService;
-import com.uce.edu.demo.matriculacion.service.IVehiculoService;
+import com.uce.edu.demo.correccion.modelo.Propietario;
+import com.uce.edu.demo.correccion.modelo.Vehiculo;
+import com.uce.edu.demo.correccion.service.IMatriculaGestorService;
+import com.uce.edu.demo.correccion.service.IPropietarioService;
+import com.uce.edu.demo.correccion.service.IVehiculoService;
+
 
 @SpringBootApplication
 public class PruebaPaP2AfApplication implements CommandLineRunner{
 	
 	@Autowired
-	private IMatriculaVehiculosService matricular;
+	private IMatriculaGestorService matriculaService;
 	@Autowired
-	private IPropietarioService propietario;
+	private IPropietarioService propietarioService;
 	@Autowired
-	private IVehiculoService vehiculo;
-	
-	Scanner leer=new Scanner(System.in);
+	private IVehiculoService vehiculoService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(PruebaPaP2AfApplication.class, args);
@@ -34,29 +33,28 @@ public class PruebaPaP2AfApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		Vehiculo v=new Vehiculo();
-		v.setMarca("Zusuki");
-		v.setPlaca("b123");
-		v.setPrecio(new BigDecimal(1000));
-		v.setTipo("P");
-		this.vehiculo.ingresarVehiculo(v);
+		Vehiculo vehiculo=new Vehiculo();
+		vehiculo.setMarca("Totota");
+		vehiculo.setPlaca("PCT8673");
+		vehiculo.setPrecio(new BigDecimal(5000));
+		vehiculo.setTipo("P");
+		this.vehiculoService.ingresarVehiculo(vehiculo);
 		
-		System.out.println("Cambie los datos de la paca del vehiculo");
-		String placa=leer.next();
-		v.setPlaca(placa);
-		System.out.println("Cambie los datos del precio del vehiculo");
-		double precio=leer.nextDouble();
-		v.setPrecio(new BigDecimal(precio));
-		this.vehiculo.actualizarVehiculo(v);
+		//2
+		vehiculo.setMarca("Toyota");
+		vehiculo.setPrecio(new BigDecimal(10000));
+		this.vehiculoService.actualizarVehiculo(vehiculo);
 		
+		//3
 		Propietario p=new Propietario();
 		p.setNombre("Axel");
 		p.setApellido("Flores");
 		p.setCedula("1752310126");
 		p.setFechaNacimiento(LocalDateTime.of(2000, 06, 28, 23, 23));
-		this.propietario.ingresarPropietario(p);
+		this.propietarioService.ingresarPropietario(p);
 		
-		this.matricular.crearMatricula(p.getCedula(), v.getPlaca());
+		//4
+		this.matriculaService.crearMatricula(p.getCedula(), vehiculo.getPlaca());
 	}
 
 }

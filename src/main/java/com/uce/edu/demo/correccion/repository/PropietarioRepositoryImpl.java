@@ -1,23 +1,19 @@
-package com.uce.edu.demo.matriculacion.repository;
+package com.uce.edu.demo.correccion.repository;
+
+import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.uce.edu.demo.matriculacion.modelo.Propietario;
+import com.uce.edu.demo.correccion.modelo.Propietario;
 
 @Repository
 public class PropietarioRepositoryImpl implements IPropietarioRepository {
-	
-	//Se creo un propietario solo para poder acceder de mejor manera
-	//ya que no se guarda en una base de datos
-	@Autowired
-	private Propietario propietario;
 	
 	@Override
 	public void ingresar(Propietario p) {
 		// TODO Auto-generated method stub
 		System.out.println("Se a ingresado al propietario: "+p+" a la BD.");
-		this.propietario=p;
 	}
 
 	@Override
@@ -30,14 +26,18 @@ public class PropietarioRepositoryImpl implements IPropietarioRepository {
 	public void actualizar(Propietario p) {
 		// TODO Auto-generated method stub
 		System.out.println("Se a actualizado al propietario: "+p+" en la BD.");
-		this.propietario=p;
 	}
 
 	@Override
 	public Propietario buscar(String cedula) {
 		// TODO Auto-generated method stub
 		System.out.println("Se a buscado al propietario con cedula: "+cedula+" en la BD.");
-		return this.propietario;
+		Propietario p=new Propietario();
+		p.setNombre("Axel");
+		p.setApellido("Flores");
+		p.setCedula("1752310126");
+		p.setFechaNacimiento(LocalDateTime.of(2000, 06, 28, 23, 25, 45));
+		return p;
 		
 	}
 

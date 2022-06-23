@@ -1,6 +1,6 @@
-package com.uce.edu.demo.matriculacion.service;
+package com.uce.edu.demo.correccion.service;
 
-import com.uce.edu.demo.matriculacion.modelo.Propietario;
+import com.uce.edu.demo.correccion.modelo.Propietario;
 
 public interface IPropietarioService {
 	public void ingresarPropietario(Propietario p);

@@ -1,10 +1,10 @@
-package com.uce.edu.demo.matriculacion.service;
+package com.uce.edu.demo.correccion.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.uce.edu.demo.matriculacion.modelo.Propietario;
-import com.uce.edu.demo.matriculacion.repository.IPropietarioRepository;
+import com.uce.edu.demo.correccion.modelo.Propietario;
+import com.uce.edu.demo.correccion.repository.IPropietarioRepository;
 
 @Service
 public class PropietarioServiceImpl implements IPropietarioService {
